@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leitura Automática de Arquivo JSON Externo</title>
+</head>
+<body>
+  <pre id="jsonOutput"></pre>
+
+  <script>
+    // Fazendo a solicitação para o arquivo JSON externo
+    fetch('arquivo.json')
+      .then(response => response.json())
+      .then(jsonContent => {
+        // Formatação e exibição do JSON
+        const formattedJson = JSON.stringify(jsonContent, null, 2);
+        document.getElementById('jsonOutput').textContent = formattedJson;
+      })
+      .catch(error => {
+        document.getElementById('jsonOutput').textContent = 'Erro ao carregar o arquivo JSON.';
+      });
+  </script>
+</body>
+</html>
